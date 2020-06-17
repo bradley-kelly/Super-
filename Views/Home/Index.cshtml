@@ -1,0 +1,29 @@
+﻿@model List<ComicBook>
+@{
+    ViewData["Title"] = "Comic Books";
+    ViewData["DescriptionTitle"] = "What is a Superhero?";
+    ViewData["SuperheroDescription"] = "A superhero or superheroine is a comic book character who does heroic deeds, such as protecting the public and stopping evil. They are able to do these heroic actions much easier than a normal person due to them having superpowers.";
+}
+<h2 class="display-2">@ViewData["Title"]</h2>
+<div>
+    <ul class="list">
+        @foreach (var item in Model)
+        {
+            <li>@item.ComicBookTitle</li>
+        }
+    </ul>
+    @* Attempted to do the extra credit. Didn't get around to finishing it, so it only shows the form but doesn't add any data to the database. *@
+    <form asp-action="Index" asp-controller="Home" method="post">
+        <table>
+            <tr>
+                <td>Enter Superhero Name: </td>
+                <td><input type="text" name="txtName" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+    <h2 class="text-center">@ViewData["DescriptionTitle"]</h2>
+    <p class="text-center">@ViewData["SuperheroDescription"]</p>
+</div>
